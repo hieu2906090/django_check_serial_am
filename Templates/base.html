@@ -1,0 +1,69 @@
+{% load static %}
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Kiểm tra serial giao cho AM</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" >
+
+    <!-- MetisMenu CSS -->
+    <link rel="stylesheet" href="{% static 'vendor/metisMenu/metisMenu.min.css' %}" >
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="{% static 'vendor/datatables-plugins/dataTables.bootstrap.css' %}">
+
+    <!-- DataTables Responsive CSS -->
+    <link rel="stylesheet" href="{% static 'vendor/datatables-responsive/dataTables.responsive.css' %}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'dist/css/sb-admin-2.css' %}" >
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" >
+</head>
+
+<body>
+  <div id='wrapper'>
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+      {% include 'partials/_navtop.html' %}
+      <!-- /.navbar-top-links -->
+      {% include 'partials/_navside.html' %}
+      <!-- /.navbar-static-side -->
+    </nav>
+    <div id="page-wrapper">
+      {% block content %} {% endblock %}
+    </div>
+  </div>
+
+  <!-- jQuery -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+  <!-- Metis Menu Plugin JavaScript -->
+  <script src="{% static 'vendor/metisMenu/metisMenu.min.js' %}"></script>
+    <!-- Custom Theme JavaScript -->
+  <script src="{% static 'dist/js/sb-admin-2.js' %}"></script>
+
+  <!-- DataTables JavaScript -->
+  <script src="{% static 'vendor/datatables/js/jquery.dataTables.min.js' %}"></script>
+  <script src="{% static 'vendor/datatables-plugins/dataTables.bootstrap.min.js' %}"></script>
+  <script src="{% static 'vendor/datatables-responsive/dataTables.responsive.js' %}"></script>
+
+  <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+  <script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+  </script>
+</body>
+
+</html>

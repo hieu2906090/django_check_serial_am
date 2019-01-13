@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-lg-12">
+      <h1 class="page-header">Danh sách giao dịch</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          DataTables Advanced Tables
+      </div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="dataTables_length" id="dataTables-example_length">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div id="dataTables-example_filter" class="dataTables_filter"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <table width="100%" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info" style="width: 100%;">
+                <thead>
+                  <tr role="row">
+                    <th class="sorting_desc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending" style="width: 50px;" aria-sort="descending">
+                      ID Giao Dịch
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 200px;">
+                      Tên Nhân Viên
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 120px;">
+                      Từ Serial
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 120px;">
+                      Đến Serial
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 136px;">
+                      Trạng Thái
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 99px;">
+                      Ngày Tạo
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 50px;">
+                      Sửa/Xóa
+                    </th>
+                  </tr>
+                </thead>
+                {% if trans %}
+                <tbody>
+                  {% for tran in trans %}
+                  <tr>
+                    <td>{{ tran.id }}</td>
+                    <td>{{ tran.em.em_name }}</td>
+                    <td>{{ tran.from_serial }}</td>
+                    <td>{{ tran.to_serial }}</td>
+                    {%if tran.status == 1 %}
+                    <td class="center">Hoạt động</td>
+                    {% else %}
+                    <td class="center">Không hoạt động</td>
+                    {% endif %}
+                    <td class="center">{{ tran.create_date }}</td>
+                    <td class="center">
+                      <a href="edit/{{e.id}}">
+                        <button type="button" class="btn btn-success btn-circle">
+                          <i class="fa fa-pencil"></i>
+                        </button>
+                      </a>
+                      <a href="delete/{{e.id}}">
+                        <button type="button" class="btn btn-danger btn-circle">
+                          <i class="fa fa-times"></i>
+                        </button>
+                      </a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+                {% endif %}
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+
+  <!-- /.table-responsive -->
+{% endblock %}

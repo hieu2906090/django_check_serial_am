@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg-12">
+      <h1 class="page-header">Thêm Nhân Viên</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <form role="form" method='post'>
+      {% csrf_token %}
+      {% if form.errors %}
+          {% for field in form %}
+              {% for error in field.errors %}
+                  <div class="alert alert-danger">
+                      <strong>{{ error|escape }}</strong>
+                  </div>
+              {% endfor %}
+          {% endfor %}
+          {% for error in form.non_field_errors %}
+              <div class="alert alert-danger">
+                  <strong>{{ error|escape }}</strong>
+              </div>
+          {% endfor %}
+      {% endif %}
+      <div class="form-group col-lg-12">
+        <div class="col-lg-2"><label>Tên Nhân Viên </label></div>
+        <div class="col-lg-9">{{ form.em_name }}</div>
+      </div>
+      <div class="form-group col-lg-12">
+        <div class="col-lg-2"><label>Mã Nhân Viên </label></div>
+        <div class="col-lg-9">{{ form.em_code }}</div>
+      </div>
+      <div class="form-group col-lg-12">
+        <div class="col-lg-2"><label>Trạng Thái </label></div>
+        <div class="col-lg-9">{{ form.status }}</div>
+      </div>
+      <div class="form-group col-lg-12">
+        <div class="col-lg-2"><label>Ngày Tạo </label></div>
+        <div class="col-lg-9">{{ form.em_create_date }}</div>
+      </div>
+      <div class="form-group col-lg-12">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-2"><button type="submit" class="btn btn-primary">Thêm mới</button></div>
+        <div class="col-lg-2"><a href="{% url 'elist' %}"><div type="button" class="btn btn-warning">Thoát</div></a></div>
+      </div>
+      <div class="form-group col-lg-12">
+        <div class="col-lg-2"></div>
+
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

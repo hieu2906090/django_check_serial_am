@@ -1,0 +1,37 @@
+<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav in" id="side-menu">
+            <li>
+                <a href="{% url 'dash' %}" class="active"><i class="fa fa-dashboard fa-fw"></i> Thống kê</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-user fa-fw"></i> Thêm Nhân viên<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li>
+                        <a href="/employee/add">Thêm nhân viên mới</a>
+                    </li>
+                    <li>
+                        <a href="/employee/list">Xem/Sửa/Xóa danh sách NV</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Giao serial cho nhân viên<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li>
+                        <a href="{% url 'tadd' %}">Giao serial cho NV</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'tlist' %}">Xem giao dịch giao serial</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'dlist' %}">Xem chi tiết serial đã giao</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+        </ul>
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>
