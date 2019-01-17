@@ -12,4 +12,6 @@ urlpatterns = [
     path('trans/add', views.transaction, name='tadd'),
     path('trans/detail', views.list_transaction_detail, name='dlist'),
     path('trans/list', views.list_transaction, name='tlist'),
+    path('trans/delete/<int:tran_id>', views.delete_trans),
+    path('trans/list/em/<int:em_id>', views.list_trans_em, name='etlist'),
 ]
